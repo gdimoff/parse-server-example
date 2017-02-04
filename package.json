@@ -13,7 +13,8 @@
     "kerberos": "~0.0.x",
     "parse": "~1.8.0",
     "parse-server": "*",
-    "parse-server-sns-adapter": "~0.0.7"
+    "parse-server-sns-adapter": "~0.0.7",
+    "parse-server-onesignal-push-adapter": "*"
   },
   "scripts": {
     "start": "node index.js"
