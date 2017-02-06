@@ -12,23 +12,23 @@ if (!databaseUri) {
 }
 
 
-var pushConfig =  { pushTypes : { ios: {ARN:'arn:aws:sns:us-west-2:311651596982:app/APNS/Quotlr', production: true, bundleId: "com.hybrid.quote"}
-                                 },
-                   accessKey: process.env.SNS_ACCESS_KEY,
-                   secretKey: process.env.SNS_SECRET_ACCESS_KEY,
-                   region: "us-west-2"
-                 };
+// var pushConfig =  { pushTypes : { ios: {ARN:'arn:aws:sns:us-west-2:311651596982:app/APNS/Quotlr', production: true, bundleId: "com.hybrid.quote"}
+//                                  },
+//                    accessKey: process.env.SNS_ACCESS_KEY,
+//                    secretKey: process.env.SNS_SECRET_ACCESS_KEY,
+//                    region: "us-west-2"
+//                  };
 
-var SNSPushAdapter = require('parse-server-sns-adapter');
-var snsPushAdapter = new SNSPushAdapter(pushConfig);
-pushConfig['adapter'] = snsPushAdapter;
+// var SNSPushAdapter = require('parse-server-sns-adapter');
+// var snsPushAdapter = new SNSPushAdapter(pushConfig);
+// pushConfig['adapter'] = snsPushAdapter;
 
 
-// var OneSignalPushAdapter = require('parse-server-onesignal-push-adapter');
-// var oneSignalPushAdapter = new OneSignalPushAdapter({
-//   oneSignalAppId: process.env.ONESIGNAL_APP_ID,
-//   oneSignalApiKey: process.env.ONESIGNAL_KEY
-// });
+var OneSignalPushAdapter = require('parse-server-onesignal-push-adapter');
+var oneSignalPushAdapter = new OneSignalPushAdapter({
+  oneSignalAppId: process.env.ONESIGNAL_APP_ID,
+  oneSignalApiKey: process.env.ONESIGNAL_KEY
+});
 
 
 var api = new ParseServer({
@@ -40,7 +40,9 @@ var api = new ParseServer({
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   },
-  push: pushConfig
+  push: {
+    adapter: oneSignalPushAdapter
+  }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
