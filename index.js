@@ -24,7 +24,7 @@ if (!databaseUri) {
 // pushConfig['adapter'] = snsPushAdapter;
 
 
-var OneSignalPushAdapter = require('parse-server-onesignal-push-adapter');
+var OneSignalPushAdapter = require('my-parse-server-onesignal-push-adapter');
 var oneSignalPushAdapter = new OneSignalPushAdapter({
   oneSignalAppId: process.env.ONESIGNAL_APP_ID,
   oneSignalApiKey: process.env.ONESIGNAL_KEY
