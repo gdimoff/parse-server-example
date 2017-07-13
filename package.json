@@ -13,7 +13,7 @@
     "kerberos": "~0.0.x",
     "parse": "~1.8.0",
     "parse-server": "*",
-    "parse-server-onesignal-push-adapter" : "gdimoff/parse-server-onesignal-push-adapter"
+    "parse-server-onesignal-push-adapter" : "npm update && npm install gdimoff/parse-server-onesignal-push-adapter"
   },
   "scripts": {
     "start": "node index.js"
