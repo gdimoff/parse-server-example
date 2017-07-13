@@ -13,7 +13,7 @@
     "kerberos": "~0.0.x",
     "parse": "~1.8.0",
     "parse-server": "*",
-    "parse-server-onesignal-push-adapter" : "git://github.com/gdimoff/parse-server-onesignal-push-adapter.git"
+    "my-parse-server-onesignal-push-adapter" : "git://github.com/gdimoff/parse-server-onesignal-push-adapter.git"
   },
   "scripts": {
     "start": "node index.js"
